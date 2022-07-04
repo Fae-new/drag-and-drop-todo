@@ -2,10 +2,20 @@ import React, { useState } from "react";
 import { useItemsContext } from "../Itemscontext";
 import { Reorder } from "framer-motion";
 import checkIcon from '../assets/images/icon-check.svg'
+import checkIconDark from '../assets/images/icon-check-dark.svg'
 import Tab from "./tabLinks";
+import NoItem from "./noItems";
+import { useThemeContext } from "../themecontext";
+
+
+
+
+
 const ListItems = () => {
     const { items, setItems } = useItemsContext()
     const [filter, setFilter] = useState('All')
+    const {theme}=useThemeContext()
+   
 
     const changeFilter = (filterValue) => {
         setFilter((prev) => {
@@ -21,9 +31,7 @@ const ListItems = () => {
 
     const handleClick = (e) => {
         let newArray = items.map((element) => {
-            if (element.text === e.target.nextSibling.id) {
-                element.isCompleted = !element.isCompleted
-            }
+            if (element.text === e.target.nextSibling.id) element.isCompleted = !element.isCompleted
             return element
         })
 
@@ -32,8 +40,12 @@ const ListItems = () => {
 
 
     return (
-        <div className="todolist">
+      
+        items.length===0 ? <NoItem/> :
 
+
+        <div className={theme? "todolist":'todolist-dark'}>
+         
             <Reorder.Group as="div" axis='y' values={items} onReorder={setItems}>
                 {items.filter((todoItem) => {
                     if (filter === 'All') {
@@ -57,19 +69,16 @@ const ListItems = () => {
                                     style={{
                                         borderRadius: '100%', border: '1px solid hsl(280, 87%, 65%)', width: '17px', height: '17px', marginTop: '2px', marginLeft: '5px'
                                     }}>
-                                    <img alt='check' style={{ display: 'flex', marginTop: '4px', marginLeft: '2px', pointerEvents: 'none', }}
-                                        src={checkIcon} />
+                                    <img alt='check' style={{ display: 'flex', marginTop: '4px', marginLeft: '4px', pointerEvents: 'none', }}
+                                        src= {theme? checkIcon:checkIconDark} />
                                 </div>
-                                <p id={todoItem.text} style={{ marginLeft: '8px', fontSize: '18px' }}>{todoItem.text}</p>
+                                <p id={todoItem.text} style={{ marginLeft: '8px', fontSize: '18px'}}>{todoItem.text}</p>
                             </Reorder.Item>
                         )
                     })}
             </Reorder.Group>
 
-            <Tab
-                items={items}
-                changeFilter={changeFilter}
-                handleClick={clearCompleted} />
+            <Tab items={items} changeFilter={changeFilter} handleClick={clearCompleted} />
 
         </div>
     )

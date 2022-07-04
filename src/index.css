@@ -6,69 +6,260 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: Josefin-Sans;
- 
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.navBar{
+
+.navBar {
   display: flex;
   justify-content: space-between;
-  width: 35%;
-  margin-left: 32.5%;
+  width: 40%;
+  margin-left: 30%;
   color: white;
   margin-top: -250px;
   align-items: center;
 }
-.tab{
+
+.tab {
   color: gray;
   cursor: pointer;
 }
-.tab:hover{
+
+.tab:hover {
   color: black;
 }
 
-.heroImage{
+.heroImage {
   background: url('./assets/images/bg-desktop-light.jpg');
   height: 300px;
   width: 100%;
 }
-.heroImageDark{
+
+.heroImageDark {
   background: url('./assets/images/bg-desktop-dark.jpg');
   height: 300px;
   width: 100%;
- 
+
 }
-.todolist{
+
+.todolist {
   margin-top: 20px;
-  outline: 1px solid white;
-  width: 35%;
+
+  width: 40%;
   box-shadow: 0px 0px 5px rgb(163, 162, 162);
-  margin-left: 32.5%;
+  margin-left: 30%;
   background-color: white;
   border-radius: 10px;
 }
 
-.todoFooter{
+.todolist-dark {
+  margin-top: 20px;
+  color: #E8E8E8;
+  width: 40%;
+  box-shadow: 0px 0px 2px black;
+  margin-left: 30%;
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 10px;
+}
+
+.todoFooter {
   display: flex;
   font-size: 13px;
   justify-content: space-between;
   width: 90%;
   margin-left: 5%;
-cursor: pointer;
-}
-.todoInput{
-  width:35%;
-  margin-left: 32.5%;
+  cursor: pointer;
+
+  margin-top: 30px;
 }
 
-input[type=checkbox]:checked+p{
+.todoInput {
+  width: 40%;
+  margin-left: 30%;
+}
+
+input[type=checkbox]:checked+p {
   text-decoration: line-through;
 }
 
+.noItems {
+  text-align: center;
 
-.tick+p{text-decoration: line-through;}
-.tick{background-image:linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%)) ;}
-.notick+p{text-decoration: none;}
+  width: 40%;
+  border-radius: 10px;
+  margin-left: 30%;
+  padding: 10px 0px;
+}
+
+
+.tick+p {
+  text-decoration: line-through;
+  text-decoration-color: black;
+}
+
+.tick {
+  background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.notick+p {
+  text-decoration: none;
+}
+
+@media screen and (max-width:1100px) {
+  .navBar {
+
+    width: 45%;
+
+    margin-left: 27.5%;
+
+  }
+
+  .todolist {
+
+
+    width: 45%;
+
+    margin-left: 27.5%;
+
+  }
+
+  .todolist-dark {
+
+    width: 45%;
+
+    margin-left: 27.5%;
+  }
+
+  .todoInput {
+    width: 45%;
+    margin-left: 27.5%;
+  }
+
+  .noItems {
+
+    width: 45%;
+
+    margin-left: 27.5%;
+
+  }
+}
+
+@media screen and (max-width:900px) {
+  .navBar {
+
+    width: 50%;
+
+    margin-left: 25%;
+
+  }
+
+  .todolist {
+
+
+    width: 50%;
+
+    margin-left: 25%;
+
+  }
+
+  .todolist-dark {
+
+    width: 50%;
+
+    margin-left: 25%;
+  }
+
+  .todoInput {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .noItems {
+
+    width: 50%;
+
+    margin-left: 25%;
+
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .navBar {
+    width: 65%;
+
+    margin-left: 17.5%;
+  }
+
+  .todolist {
+
+
+    width: 65%;
+
+    margin-left: 17.5%;
+
+  }
+
+  .todolist-dark {
+
+    width: 65%;
+
+    margin-left: 17.5%;
+  }
+
+  .todoInput {
+    width: 65%;
+
+    margin-left: 17.5%;
+  }
+
+  .noItems {
+
+    width: 65%;
+
+    margin-left: 17.5%;
+
+  }
+}
+
+@media screen and (max-width:600px) {
+  .navBar {
+    width: 90%;
+
+    margin-left: 5%;
+  }
+
+  .todolist {
+
+
+    width: 90%;
+
+    margin-left: 5%;
+
+  }
+
+  .todolist-dark {
+
+    width: 90%;
+
+    margin-left: 5%;
+  }
+
+  .todoInput {
+    width: 90%;
+
+    margin-left: 5%;
+  }
+
+  .noItems {
+
+    width: 90%;
+
+    margin-left: 5%;
+
+  }
+}

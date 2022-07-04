@@ -8,11 +8,7 @@ export const useItemsContext = () => {
 }
 
 export const ItemsProvider = ({ children }) => {
-    const [items, setItems] = useState(
-        [{ id: 1, text: 'eat', isCompleted: false },
-        { id: 2, text: 'buy food', isCompleted: false },
-        { id: 3, text: 'sell food', isCompleted: false }]
-    )
+    const [items, setItems] = useState([])
 
     return (
         <itemsContext.Provider value={{ items, setItems }}>

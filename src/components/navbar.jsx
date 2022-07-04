@@ -11,14 +11,11 @@ const Navbar = () => {
 
   useMemo(() => {
     const bodyStyle = document.body.style
-    theme ? bodyStyle.backgroundColor = 'white' : bodyStyle.backgroundColor ='rgb(20,20,20)'
+    theme ? bodyStyle.backgroundColor = 'white' : bodyStyle.backgroundColor =' hsl(235, 21%, 11%)'
   }
     , [theme])
 
-  const changeTheme = () => {
-    setTheme(prev => !prev)
-
-  }
+  const changeTheme = () => setTheme(prev => !prev)
 
   return (<div className="navBar">
     <h1>TODO</h1>
